@@ -1,0 +1,37 @@
+@page "/products"
+@using AgriConnect.WebApp.Components.Layout
+@using AgriConnect.Domain.Products
+@using AgriConnect.Application.Products.ViewProducts.Farmer
+@using AgriConnect.Application.Products.ViewProducts.User
+@using Microsoft.IdentityModel.JsonWebTokens
+@layout BaseLayout
+
+<div class="p-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-5">
+        @foreach (var product in Productss)
+        {
+            <div class="border rounded shadow-lg overflow-hidden">
+                @if (product.Photo != null)
+                {
+                    <img src="@product.Photo.Value" alt="@product.Name" class="w-full h-48 object-cover" />
+                }
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold">@product.Name.Value</h2>
+                    <p class="text-gray-600">@product.ProductionDateUtc.ToString("yyyy-MM-dd")</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    public List<Product> Productss { get; set; } = new List<Product>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var query = new ViewProductsAsUserQuery();
+        var data = await sender.Send(query);
+        
+        Productss = data.Value.Products.ToList();
+    } 
+}

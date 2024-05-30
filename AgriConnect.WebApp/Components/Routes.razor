@@ -1,0 +1,34 @@
+﻿@* <CascadingAuthenticationState> *@
+@*     <Router AppAssembly="typeof(Program).Assembly"> *@
+@*         <Found Context="routeData"> *@
+@*             <RouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)"/> *@
+@*             <FocusOnNavigate RouteData="routeData" Selector="h1"/> *@
+@*         </Found> *@
+@*     </Router> *@
+@* </CascadingAuthenticationState>  *@
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Web
+@using AgriConnect.WebApp.Components.Pages.Shared
+
+<CascadingAuthenticationState>
+    <Router AppAssembly="typeof(Program).Assembly">
+        <Found Context="routeData">
+            <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)">
+                <NotAuthorized>
+                    <RedirectToLogin/>
+                </NotAuthorized>
+            </AuthorizeRouteView>
+            <FocusOnNavigate RouteData="routeData" Selector="h1"/>
+        </Found>
+    </Router>
+</CascadingAuthenticationState>
+@* <Router AppAssembly="typeof(Program).Assembly"> *@
+@*     <Found Context="routeData"> *@
+@*         <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)"> *@
+@*             <NotAuthorized> *@
+@*                 <RedirectToLogin/> *@
+@*             </NotAuthorized> *@
+@*         </AuthorizeRouteView> *@
+@*         <FocusOnNavigate RouteData="routeData" Selector="h1"/> *@
+@*     </Found> *@
+@* </Router>   *@

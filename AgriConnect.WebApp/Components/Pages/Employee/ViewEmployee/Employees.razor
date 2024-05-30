@@ -1,0 +1,35 @@
+@page "/employees"
+@using AgriConnect.WebApp.Components.Layout
+@rendermode InteractiveServer
+@layout DashboardLayout
+<h1 class="text-primary text-2xl font-bold">Employees</h1>
+
+<div class="card shadow-lg bg-white mt-5 p-5">
+    <div class="card-body">
+        <SfGrid AllowFiltering="true" FilterSettings="new GridFilterSettings(){
+            Type = FilterType.Menu
+                }" DataSource="@Orders" />
+    </div>
+</div>
+
+@code { 
+    
+    public List<Order> Orders { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Orders = Enumerable.Range(1, 5).Select(x => new Order()
+        {
+            OrderID = 0 + x,
+            CustomerID = (new string[] { "ALFKI", "ANANTR", "ANTON", "BLONP", "BOLID" })[new Random().Next(5)],
+        }).ToList();
+    }
+
+    public class Order
+    {
+        public int? OrderID { get; set; }
+        public string CustomerID { get; set; }
+
+    }
+    
+}

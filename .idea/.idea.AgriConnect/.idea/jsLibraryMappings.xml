@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <excludedPredefinedLibrary name="AgriConnect/AgriConnect.WebApp/node_modules" />
+    <excludedPredefinedLibrary name="AgriConnect/AgriConnect.WebApp/node_modules/anymatch/node_modules" />
+    <excludedPredefinedLibrary name="AgriConnect/AgriConnect.WebApp/node_modules/browserslist/node_modules" />
+    <excludedPredefinedLibrary name="AgriConnect/AgriConnect.WebApp/node_modules/chokidar/node_modules" />
+    <excludedPredefinedLibrary name="AgriConnect/AgriConnect.WebApp/node_modules/fast-glob/node_modules" />
+    <excludedPredefinedLibrary name="AgriConnect/AgriConnect.WebApp/node_modules/globby/node_modules" />
+    <excludedPredefinedLibrary name="AgriConnect/AgriConnect.WebApp/node_modules/hasown/node_modules" />
+    <excludedPredefinedLibrary name="AgriConnect/AgriConnect.WebApp/node_modules/micromatch/node_modules" />
+    <excludedPredefinedLibrary name="AgriConnect/AgriConnect.WebApp/node_modules/postcss-load-config/node_modules" />
+    <excludedPredefinedLibrary name="AgriConnect/AgriConnect.WebApp/node_modules/readdirp/node_modules" />
+    <excludedPredefinedLibrary name="AgriConnect/AgriConnect.WebApp/node_modules/resolve/node_modules" />
+    <excludedPredefinedLibrary name="AgriConnect/AgriConnect.WebApp/node_modules/resolve/test/resolver/symlinked/_/node_modules" />
+    <excludedPredefinedLibrary name="AgriConnect/AgriConnect.WebApp/node_modules/string-width/node_modules" />
+    <excludedPredefinedLibrary name="AgriConnect/AgriConnect.WebApp/node_modules/sucrase/node_modules" />
+    <excludedPredefinedLibrary name="AgriConnect/AgriConnect.WebApp/node_modules/yaml/browser/dist/node_modules" />
+  </component>
+</project>

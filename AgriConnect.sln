@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+#
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0987B399-407D-4635-984B-4291E3215D70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{EAD1E4A4-A953-48F6-A134-29F65BC6A3E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgriConnect.Domain", "AgriConnect.Domain\AgriConnect.Domain.csproj", "{FB8831B1-C641-404B-96D7-7AAF727C7BAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgriConnect.Infrastructure", "AgriConnect.Infrastructure\AgriConnect.Infrastructure.csproj", "{5C38747E-D704-4A4A-8C84-32AF055B3BAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgriConnect.Application", "AgriConnect.Application\AgriConnect.Application.csproj", "{A3FCDE8C-9529-4C09-B4D7-05E8928F0AAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgriConnect.WebApp", "AgriConnect.WebApp\AgriConnect.WebApp.csproj", "{E5728F2E-87C1-4AD4-9F4F-3C6C9D753807}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FB8831B1-C641-404B-96D7-7AAF727C7BAF} = {0987B399-407D-4635-984B-4291E3215D70}
+		{5C38747E-D704-4A4A-8C84-32AF055B3BAF} = {0987B399-407D-4635-984B-4291E3215D70}
+		{A3FCDE8C-9529-4C09-B4D7-05E8928F0AAD} = {0987B399-407D-4635-984B-4291E3215D70}
+		{E5728F2E-87C1-4AD4-9F4F-3C6C9D753807} = {0987B399-407D-4635-984B-4291E3215D70}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB8831B1-C641-404B-96D7-7AAF727C7BAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB8831B1-C641-404B-96D7-7AAF727C7BAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB8831B1-C641-404B-96D7-7AAF727C7BAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB8831B1-C641-404B-96D7-7AAF727C7BAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C38747E-D704-4A4A-8C84-32AF055B3BAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C38747E-D704-4A4A-8C84-32AF055B3BAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C38747E-D704-4A4A-8C84-32AF055B3BAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C38747E-D704-4A4A-8C84-32AF055B3BAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3FCDE8C-9529-4C09-B4D7-05E8928F0AAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FCDE8C-9529-4C09-B4D7-05E8928F0AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3FCDE8C-9529-4C09-B4D7-05E8928F0AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3FCDE8C-9529-4C09-B4D7-05E8928F0AAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5728F2E-87C1-4AD4-9F4F-3C6C9D753807}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5728F2E-87C1-4AD4-9F4F-3C6C9D753807}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5728F2E-87C1-4AD4-9F4F-3C6C9D753807}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5728F2E-87C1-4AD4-9F4F-3C6C9D753807}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

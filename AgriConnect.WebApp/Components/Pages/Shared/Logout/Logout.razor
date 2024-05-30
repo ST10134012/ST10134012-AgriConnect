@@ -1,0 +1,12 @@
+@page "/logout"
+@using AgriConnect.Application.Abstractions.Authentication
+@inject NavigationManager Navigation
+@inject IAuthenticationService AuthService
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await AuthService.SignOutAsync();
+        Navigation.NavigateTo("/");
+    }
+}   

@@ -1,0 +1,124 @@
+@page "/login"
+@using Microsoft.AspNetCore.Antiforgery
+@using AgriConnect.Application.Users.UserLogin
+@using AgriConnect.WebApp.Components.Layout
+@using MediatR
+@attribute [RequireAntiforgeryToken(required: false)]
+@implements IDisposable
+@inject ILogger<Login> Logger
+@inject ISender sender;
+@inject NavigationManager NavigationManager
+@layout BaseLayout
+ 
+ 
+<PageTitle>Login</PageTitle>
+
+<div class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <div class="flex items-center justify-center">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <div class="mb-4"> 
+            <h1 class="text-2xl font-bold text-gray-800">Login</h1>
+        </div>
+        <EditForm Model="LoginModel" OnSubmit="Submit" FormName="employee-login-form">
+            <AntiforgeryToken/>
+            <div class="mb-4">
+                @if (LoginModel != null)
+                {   
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+                        <InputText @bind-Value="LoginModel.Username"
+                                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                   id="email"
+                                   type="email"
+                                   placeholder="you@example.com"/>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
+                        <InputText @bind-Value="LoginModel.Password"
+                                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                   id="password"
+                                   placeholder="Password"
+                                   type="password"/>
+                        <ValidationMessage For="() => LoginModel.Password"/>
+                    </div>
+
+                }
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">
+                    <InputCheckbox @bind-Value="LoginModel.RememberMe"
+                                   class="mr-2 leading-tight"
+                                   type="checkbox"/>
+                    <span class="text-sm">Remember me?</span>
+                </label>
+            </div>
+            <div class="mb-4">
+                <button class="bg-primary hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="submit">
+                    Login
+                </button>
+            </div>
+        </EditForm>
+    </div>
+
+ </div>
+   
+@code {
+    private EditContext? editContext;
+    private string returnUrl;
+    [SupplyParameterFromForm]
+    public LoginRequest?  LoginModel { get; set; }
+    
+    private ValidationMessageStore? messageStore;
+
+    protected override void OnInitialized()
+    {
+        LoginModel ??= new LoginRequest();
+        editContext = new( LoginModel);
+        editContext.OnValidationRequested += HandleValidationRequested;
+        var uri = new Uri(NavigationManager.Uri);
+        var query = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
+        if (query.TryGetValue("returnUrl", out var url))
+        {
+            returnUrl = url;
+        }
+    }
+    
+    private void HandleValidationRequested(object? sender,
+        ValidationRequestedEventArgs args)
+    {
+        messageStore?.Clear();
+    }
+    
+    private async Task  Submit()
+    {
+        if (LoginModel?.Username != null)
+        {
+            var command = new LoginCommand(
+                LoginModel.Username,
+                LoginModel.Password);
+
+            var result = await sender.Send(command);
+   
+            if (result.IsSuccess)
+            {
+                NavigationManager.NavigateTo(!string.IsNullOrEmpty(returnUrl) ? returnUrl : "/");
+            }
+            else
+            {
+                Console.WriteLine("Something went wrong while trying to login.");
+            }
+        }
+    }
+
+    public void Dispose()
+    {
+        if (editContext is not null)
+        {
+            editContext.OnValidationRequested -= HandleValidationRequested;
+        }
+    } 
+ 
+}  
