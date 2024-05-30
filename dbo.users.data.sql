@@ -1,0 +1,4 @@
+INSERT INTO [dbo].[users] ([Id], [FirstName], [LastName], [Email], [Photo], [RoleId], [IdentityId]) VALUES (N'8cc6b6a2-e93e-4139-99e9-2f853e3035c6', N'Shami', N'Test', N'shami@test.com', NULL, 1, N'98564d98-db77-4c42-9ade-c63d687a8774')
+INSERT INTO [dbo].[users] ([Id], [FirstName], [LastName], [Email], [Photo], [RoleId], [IdentityId]) VALUES (N'1ccee01f-0e0c-48f6-ae79-8f100f63c893', N'Oliver', N'Mike', N'mike@mail.com', NULL, 2, N'8c5c1d2e-009b-4864-9edc-210233925c2a')
+INSERT INTO [dbo].[users] ([Id], [FirstName], [LastName], [Email], [Photo], [RoleId], [IdentityId]) VALUES (N'299cb016-1e4f-43c8-bc50-90aa35cd26a2', N'Bianca', N'Matora', N'bianca@live.com', NULL, 2, N'e7e91150-db15-454d-a3a7-6063652f421c')
+INSERT INTO [dbo].[users] ([Id], [FirstName], [LastName], [Email], [Photo], [RoleId], [IdentityId]) VALUES (N'4d7711a2-9bfb-4d93-a1ce-a6f5ef97bba1', N'Hazel', N'Kaseke', N'hazelkaseke.hk@gmail.com', NULL, 1, N'f194a534-e421-48f2-b10a-688490466947')
